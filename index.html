@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      For My Golden Girl, Julie ❤️🔥 | A Magical Phoenix Love Letter
+    </title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Particle & Ambient Canvas -->
+    <canvas
+      id="starfield-canvas"
+      class="background-canvas"
+      aria-hidden="true"
+    ></canvas>
+
+    <!-- Golden Scroll Progress Bar -->
+    <div class="scroll-progress-container" aria-hidden="true">
+      <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Ambient Light Orbs -->
+    <div class="ambient-glow glow-gold" aria-hidden="true"></div>
+    <div class="ambient-glow glow-crimson" aria-hidden="true"></div>
+    <div class="ambient-glow glow-pink" aria-hidden="true"></div>
+
+    <!-- Floating Secret Feather (Easter Egg) -->
+    <button
+      id="secretFeatherBtn"
+      class="secret-feather"
+      title="A tiny golden feather for Julie..."
+      aria-label="A tiny golden secret feather"
+    >
+      <svg
+        viewBox="0 0 64 64"
+        width="32"
+        height="32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 52 C20 44, 30 25, 52 12 C44 26, 38 42, 28 48 C24 50, 16 52, 12 52 Z"
+          fill="url(#featherGold)"
+          stroke="#FFD700"
+          stroke-width="1.5"
+          filter="drop-shadow(0 0 6px rgba(255, 215, 0, 0.8))"
+        />
+        <path
+          d="M12 52 L48 16"
+          stroke="#FFFFFF"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          opacity="0.9"
+        />
+        <path
+          d="M22 42 L26 36 M30 34 L36 30 M38 26 L44 22"
+          stroke="#FFF3B0"
+          stroke-width="1"
+          stroke-linecap="round"
+          opacity="0.8"
+        />
+        <defs>
+          <linearGradient
+            id="featherGold"
+            x1="12"
+            y1="52"
+            x2="52"
+            y2="12"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stop-color="#FF6B35" />
+            <stop offset="40%" stop-color="#FFD700" />
+            <stop offset="70%" stop-color="#FF4FD8" />
+            <stop offset="100%" stop-color="#F5D78E" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="feather-pulse"></span>
+      <span class="feather-tooltip">A secret feather for you ✨</span>
+    </button>
+
+    <!-- Navigation Bar -->
+    <header class="site-header" id="siteHeader">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo" aria-label="Return to top">
+          <span class="logo-phoenix-icon">🔥</span>
+          <span class="logo-text">Julie &amp; Me</span>
+          <span class="logo-badge">Forever</span>
+        </a>
+
+        <nav class="nav-links" id="navMenu">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#letter" class="nav-link">Love Letter</a>
+          <a href="#memories" class="nav-link">Memories</a>
+          <a href="#gratitude" class="nav-link">Gratitude</a>
+          <a href="#promises" class="nav-link">Promises</a>
+          <a href="#faith" class="nav-link">Faith</a>
+        </nav>
+
+        <div class="nav-actions">
+          <!-- Interactive Love Counter Pill -->
+          <button
+            id="sendLovePillBtn"
+            class="love-pill-btn"
+            aria-label="Send Love to Julie"
+          >
+            <span class="love-pill-icon">❤️</span>
+            <span class="love-pill-text">Love Sent</span>
+            <span id="loveCountDisplay" class="love-pill-count">100</span>
+          </button>
+
+          <!-- Quick Sound Toggle Button -->
+          <button
+            id="quickSoundBtn"
+            class="quick-sound-btn"
+            aria-label="Toggle Background Music"
+            title="Play / Pause Romantic Music"
+          >
+            <span class="sound-icon-wrapper">
+              <svg
+                class="music-note-svg"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+                />
+              </svg>
+            </span>
+            <span id="quickSoundLabel" class="quick-sound-label"
+              >Play Song</span
+            >
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            id="mobileNavToggle"
+            class="mobile-nav-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==========================================
+         SECTION 1: HERO SECTION
+         ========================================== -->
+      <section class="hero-section" id="hero">
+        <div class="hero-content-wrapper">
+          <!-- Glowing Phoenix Centerpiece -->
+          <div class="phoenix-hero-container">
+            <div class="phoenix-aura"></div>
+            <div class="phoenix-wings-effect"></div>
+            <div class="phoenix-image-frame">
+              <img
+                src="images/phoenix.png"
+                alt="Magnificent Golden Phoenix of Love"
+                class="phoenix-main-img"
+                id="heroPhoenixImg"
+                onerror="
+                  this.style.display = 'none';
+                  document
+                    .getElementById('phoenixFallbackHero')
+                    .classList.add('active');
+                "
+              />
+              <!-- Visual CSS/SVG Fallback if image is loading or missing -->
+              <div id="phoenixFallbackHero" class="phoenix-fallback-svg">
+                <div class="phoenix-crest">🔥</div>
+                <p class="phoenix-fallback-title">Golden Phoenix of Love</p>
+              </div>
+            </div>
+            <!-- Drifting Sparkle Embers around Phoenix -->
+            <div class="ember ember-1" aria-hidden="true"></div>
+            <div class="ember ember-2" aria-hidden="true"></div>
+            <div class="ember ember-3" aria-hidden="true"></div>
+            <div class="ember ember-4" aria-hidden="true"></div>
+            <div class="ember ember-5" aria-hidden="true"></div>
+          </div>
+
+          <!-- Hero Header Information -->
+          <div class="hero-text-block">
+            <div class="hero-badge">
+              <span class="hero-badge-sparkle">✨</span>
+              <span class="hero-badge-text"
+                >A LITTLE SOMETHING FOR MY BABY</span
+              >
+              <span class="hero-badge-sparkle">✨</span>
+            </div>
+
+            <h1 class="hero-title">
+              For My Golden Girl, <span class="gold-gradient-text">Julie</span>
+              <span class="hero-emojis">❤️🔥</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              For the girl who makes ordinary days feel like beautiful memories.
+            </p>
+
+            <p class="hero-dedication">
+              Today was pure magic because of you. From sharing warm meals to
+              laughing together inside the photobooth, every second beside you
+              made my heart overflow with gratitude and pure love.
+            </p>
+
+            <div class="hero-cta-group">
+              <button id="heroOpenSurpriseBtn" class="btn-golden btn-glow">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">Open Your Little Surprise</span>
+                <span class="btn-shimmer"></span>
+              </button>
+
+              <button id="heroPlayMusicBtn" class="btn-secondary-glow">
+                <span class="music-disc-spin">🎵</span>
+                <span class="btn-text" id="heroPlayMusicText"
+                  >Play Our Little Soundtrack</span
+                >
+              </button>
+            </div>
+          </div>
+
+          <!-- Animated Scroll Down Indicator -->
+          <a
+            href="#letter"
+            class="scroll-down-indicator"
+            aria-label="Scroll down to letter"
+          >
+            <span class="scroll-text">Scroll down to read my heart</span>
+            <div class="scroll-mouse">
+              <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-chevron">▼</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 2: MY HEARTFELT THANK-YOU LETTER
+         ========================================== -->
+      <section class="letter-section" id="letter">
+        <div class="section-container">
+          <div class="section-header text-center">
+            <div class="section-tag">
+              <span class="tag-dot"></span>
+              <span>WRITTEN FROM DEEP WITHIN MY HEART</span>
+              <span class="tag-dot"></span>
+            </div>
+            <h2 class="section-title">
+              A Letter For
+              <span class="gold-gradient-text">My Baby Julie</span> 💌
+            </h2>
+            <p class="section-subtitle">
+              Every word here is honest, shy, thankful, and completely yours.
+            </p>
+          </div>
+
+          <!-- Glassmorphic Letter Card -->
+          <div class="letter-card-wrapper">
+            <div class="letter-wings-bg" aria-hidden="true"></div>
+
+            <div class="letter-card" id="loveLetterCard">
+              <!-- Golden Corner Accents -->
+              <div class="card-corner top-left"></div>
+              <div class="card-corner top-right"></div>
+              <div class="card-corner bottom-left"></div>
+              <div class="card-corner bottom-right"></div>
+
+              <!-- Letter Header Ribbon -->
+              <div class="letter-seal-ribbon">
+                <div class="wax-seal">
+                  <span class="wax-seal-icon">🔥</span>
+                </div>
+                <div class="letter-meta">
+                  <span class="letter-meta-date">Forever &amp; Always</span>
+                  <span class="letter-meta-to">To: My Baby Julie ❤️</span>
+                </div>
+              </div>
+
+              <!-- Interactive Reveal Trigger (Before Reading) -->
+              <div class="letter-initial-prompt" id="letterInitialPrompt">
+                <div class="letter-preview-glow">
+                  <div class="phoenix-feather-glow">🪶</div>
+                  <h3>A Special Message Is Waiting For You</h3>
+                  <p>
+                    Click below to unfold my heart. I wrote every single word
+                    thinking of you.
+                  </p>
+                  <div class="letter-prompt-buttons">
+                    <button id="readMyHeartBtn" class="btn-golden btn-glow">
+                      <span class="btn-icon">💌</span>
+                      <span class="btn-text">Read My Heart</span>
+                      <span class="btn-shimmer"></span>
+                    </button>
+                    <button id="showInstantlyBtn" class="btn-simple-gold">
+                      Show Full Letter Instantly ⚡
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Progressive Letter Body Content -->
+              <div
+                class="letter-content"
+                id="letterContent"
+                style="display: none"
+              >
+                <div class="letter-salutation">
+                  <h3 class="salutation-text">My Baby Julie,</h3>
+                </div>
+
+                <div class="letter-paragraphs" id="letterParagraphs">
+                  <p class="letter-p" data-delay="0">
+                    I just want to say thank you for today. Thank you for eating
+                    with me, for bringing me to the photobooth, and for giving
+                    me another beautiful memory that I will always treasure.
+                    Even the simplest moments become special when I spend them
+                    with you.
+                  </p>
+
+                  <p class="letter-p" data-delay="1">
+                    But, Baby, there is something I really want you to know.
+                    <strong>I notice everything you do for me.</strong>
+                    I notice how you treat me, how you buy things for me, how
+                    you always find ways to make me happy, and how generously
+                    you give without making me feel like I have to ask.
+                  </p>
+
+                  <p class="letter-p" data-delay="2">
+                    Honestly, I get so shy sometimes. You keep spending money on
+                    me and treating me almost every day, and sometimes I do not
+                    even know what to say. I feel so blessed, and I wonder how I
+                    got so lucky to have someone with such a beautiful heart.
+                    <em
+                      >I hope you know that I never take any of it for
+                      granted.</em
+                    >
+                  </p>
+
+                  <p class="letter-p" data-delay="3">
+                    Thank you for today's food, our photobooth pictures, your
+                    gifts, your generosity, and most importantly,
+                    <strong>your time</strong>. Thank you for choosing to spend
+                    your day with me. I know that money comes from your hard
+                    work, and that makes every single thing you do for me even
+                    more meaningful.
+                  </p>
+
+                  <p class="letter-p" data-delay="4">
+                    But, Baby, please remember this:
+                    <strong
+                      >you never have to spend money just to make me
+                      happy.</strong
+                    >
+                    Your presence already means so much to me. Eating together,
+                    laughing with you, holding your hand, talking about our day,
+                    and simply being beside you are things I will always
+                    treasure.
+                  </p>
+
+                  <p class="letter-p" data-delay="5">
+                    I do not just love what you do for me.
+                    <strong>I love YOU.</strong> I love your heart, your
+                    kindness, your sweetness, and the person you are. I want to
+                    be someone who makes you feel just as loved, appreciated,
+                    and cared for as you make me feel.
+                  </p>
+
+                  <p class="letter-p" data-delay="6">
+                    I pray that God blesses you for all the kindness you give. I
+                    pray that He protects your heart, gives you happiness and
+                    peace, and helps me become a better man who can love you the
+                    way you deserve.
+                  </p>
+
+                  <p class="letter-p" data-delay="7">
+                    Thank you for today, my Baby Julie. Thank you for making
+                    another ordinary day feel extraordinary.
+                  </p>
+
+                  <p class="letter-p letter-highlight" data-delay="8">
+                    I really, really love you. More than these words can
+                    explain, and more than my shy heart sometimes knows how to
+                    show.
+                  </p>
+                </div>
+
+                <div class="letter-signature-block" id="letterSignature">
+                  <div class="signature-line"></div>
+                  <p class="sign-closing">Always your boy,</p>
+                  <p class="sign-tagline">
+                    The one who is endlessly thankful for you. ❤️🔥
+                  </p>
+                </div>
+
+                <!-- Controls after letter is revealed -->
+                <div class="letter-controls">
+                  <button
+                    id="replayLetterBtn"
+                    class="btn-outline-gold"
+                    title="Replay the romantic reveal"
+                  >
+                    🔄 Replay Letter Animation
+                  </button>
+                  <button
+                    id="sendLoveFromLetterBtn"
+                    class="btn-golden btn-glow"
+                  >
+                    Send You a Little Love 💌
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 3: FIVE-PHOTO MEMORY GALLERY
+         ========================================== -->
+      <section class="gallery-section" id="memories">
+        <div class="section-container">
+          <div class="section-header text-center">
+            <div class="section-tag">
+              <span class="tag-dot"></span>
+              <span>SNAPSHOTS OF OUR UNFORGETTABLE DAY</span>
+              <span class="tag-dot"></span>
+            </div>
+            <h2 class="section-title">
+              Five Little Windows Into
+              <span class="gold-gradient-text">My Favorite Memories</span> 📸
+            </h2>
+            <p class="section-subtitle">
+              Every glance, every candid smile, and every frame tells the story
+              of how lucky I am to be with you.
+            </p>
+          </div>
+
+          <!-- Five Photo Cinematic Grid -->
+          <div class="photo-gallery-grid">
+            <!-- Photo 1: Julie -->
+            <article class="gallery-item-card" data-photo-id="1">
+              <div class="card-gold-border"></div>
+              <div class="photo-thumb-container">
+                <img
+                  src="images/photo1.jpg"
+                  alt="My Favorite Picture of Julie"
+                  class="photo-img"
+                  loading="lazy"
+                  onerror="
+                    this.classList.add('has-error');
+                    this.nextElementSibling.classList.add('visible');
+                  "
+                />
+                <div class="photo-fallback-placeholder">
+                  <div class="fallback-icon">👑</div>
+                  <p class="fallback-title">My Favorite Picture of Julie</p>
+                  <span class="fallback-hint"
+                    >Place photo at images/photo1.jpg</span
+                  >
+                </div>
+                <div class="photo-overlay">
+                  <span class="zoom-pill">🔍 Tap to View</span>
+                </div>
+                <span class="photo-number-tag">Memory 01</span>
+              </div>
+              <div class="photo-caption-info">
+                <h3 class="photo-title">My Golden Girl 👑</h3>
+                <p class="photo-desc">
+                  The girl whose bright smile instantly turns my whole day
+                  around.
+                </p>
+              </div>
+            </article>
+
+            <!-- Photo 2: Us Together -->
+            <article class="gallery-item-card" data-photo-id="2">
+              <div class="card-gold-border"></div>
+              <div class="photo-thumb-container">
+                <img
+                  src="images/photo2.jpg"
+                  alt="A photo of us together"
+                  class="photo-img"
+                  loading="lazy"
+                  onerror="
+                    this.classList.add('has-error');
+                    this.nextElementSibling.classList.add('visible');
+                  "
+                />
+                <div class="photo-fallback-placeholder">
+                  <div class="fallback-icon">💑</div>
+                  <p class="fallback-title">Us Together</p>
+                  <span class="fallback-hint"
+                    >Place photo at images/photo2.jpg</span
+                  >
+                </div>
+                <div class="photo-overlay">
+                  <span class="zoom-pill">🔍 Tap to View</span>
+                </div>
+                <span class="photo-number-tag">Memory 02</span>
+              </div>
+              <div class="photo-caption-info">
+                <h3 class="photo-title">Beside Each Other 💑</h3>
+                <p class="photo-desc">
+                  Right where I feel safe, happy, and so blessed to be.
+                </p>
+              </div>
+            </article>
+
+            <!-- Photo 3: Food Date -->
+            <article class="gallery-item-card" data-photo-id="3">
+              <div class="card-gold-border"></div>
+              <div class="photo-thumb-container">
+                <img
+                  src="images/photo3.jpg"
+                  alt="Our food date together"
+                  class="photo-img"
+                  loading="lazy"
+                  onerror="
+                    this.classList.add('has-error');
+                    this.nextElementSibling.classList.add('visible');
+                  "
+                />
+                <div class="photo-fallback-placeholder">
+                  <div class="fallback-icon">🍽️</div>
+                  <p class="fallback-title">Our Food Date</p>
+                  <span class="fallback-hint"
+                    >Place photo at images/photo3.jpg</span
+                  >
+                </div>
+                <div class="photo-overlay">
+                  <span class="zoom-pill">🔍 Tap to View</span>
+                </div>
+                <span class="photo-number-tag">Memory 03</span>
+              </div>
+              <div class="photo-caption-info">
+                <h3 class="photo-title">Today's Sweet Treat 🍽️</h3>
+                <p class="photo-desc">
+                  Thank you for sharing your food, your laughter, and this warm
+                  meal with me.
+                </p>
+              </div>
+            </article>
+
+            <!-- Photo 4: Photobooth -->
+            <article class="gallery-item-card" data-photo-id="4">
+              <div class="card-gold-border"></div>
+              <div class="photo-thumb-container">
+                <img
+                  src="images/photo4.jpg"
+                  alt="Our photobooth memories"
+                  class="photo-img"
+                  loading="lazy"
+                  onerror="
+                    this.classList.add('has-error');
+                    this.nextElementSibling.classList.add('visible');
+                  "
+                />
+                <div class="photo-fallback-placeholder">
+                  <div class="fallback-icon">🎞️</div>
+                  <p class="fallback-title">Photobooth Memories</p>
+                  <span class="fallback-hint"
+                    >Place photo at images/photo4.jpg</span
+                  >
+                </div>
+                <div class="photo-overlay">
+                  <span class="zoom-pill">🔍 Tap to View</span>
+                </div>
+                <span class="photo-number-tag">Memory 04</span>
+              </div>
+              <div class="photo-caption-info">
+                <h3 class="photo-title">Photobooth Smiles 🎞️</h3>
+                <p class="photo-desc">
+                  Little captured snapshots of silly poses, sweet giggles, and
+                  pure happiness.
+                </p>
+              </div>
+            </article>
+
+            <!-- Photo 5: Favorite Moment Today -->
+            <article
+              class="gallery-item-card featured-memory"
+              data-photo-id="5"
+            >
+              <div class="card-gold-border"></div>
+              <div class="photo-thumb-container">
+                <img
+                  src="images/photo5.jpg"
+                  alt="My favorite picture from our time together today"
+                  class="photo-img"
+                  loading="lazy"
+                  onerror="
+                    this.classList.add('has-error');
+                    this.nextElementSibling.classList.add('visible');
+                  "
+                />
+                <div class="photo-fallback-placeholder">
+                  <div class="fallback-icon">✨</div>
+                  <p class="fallback-title">Our Favorite Moment Today</p>
+                  <span class="fallback-hint"
+                    >Place photo at images/photo5.jpg</span
+                  >
+                </div>
+                <div class="photo-overlay">
+                  <span class="zoom-pill">🔍 Tap to View</span>
+                </div>
+                <span class="photo-number-tag">Memory 05 • Special</span>
+              </div>
+              <div class="photo-caption-info">
+                <h3 class="photo-title">Today's Golden Memory ✨</h3>
+                <p class="photo-desc">
+                  The moment that reminded me how deeply grateful I am to have
+                  you in my life.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 4: INTERACTIVE GRATITUDE SECTION
+         ========================================== -->
+      <section class="gratitude-section" id="gratitude">
+        <div class="section-container">
+          <div class="section-header text-center">
+            <div class="section-tag">
+              <span class="tag-dot"></span>
+              <span>WORDS FROM MY SHY SOUL</span>
+              <span class="tag-dot"></span>
+            </div>
+            <h2 class="section-title">
+              Things I May Be
+              <span class="gold-gradient-text">Too Shy to Say Out Loud</span> 💛
+            </h2>
+            <p class="section-subtitle">
+              Tap each golden card to reveal the thoughts that flutter in my
+              mind when you treat me so sweetly.
+            </p>
+          </div>
+
+          <!-- Five Clickable Golden Cards -->
+          <div class="gratitude-cards-grid">
+            <!-- Card 1 -->
+            <div
+              class="gratitude-card"
+              data-card="1"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+            >
+              <div class="g-card-glow"></div>
+              <div class="g-card-icon">🍽️</div>
+              <div class="g-card-head">
+                <span class="g-card-pill">Thought 01</span>
+                <h3 class="g-card-title">Thank You for Today</h3>
+              </div>
+              <p class="g-card-teaser">
+                For sharing your food, your time, and your warm presence...
+              </p>
+              <div class="g-card-full-message">
+                <div class="quote-mark">“</div>
+                <p class="quote-text">
+                  Thank you for sharing your food, your time, and your beautiful
+                  company with me. Today was so special because I got to spend
+                  it right beside you.
+                </p>
+              </div>
+              <div class="g-card-action">
+                <span class="action-hint">Tap to expand 💛</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="gratitude-card"
+              data-card="2"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+            >
+              <div class="g-card-glow"></div>
+              <div class="g-card-icon">📸</div>
+              <div class="g-card-head">
+                <span class="g-card-pill">Thought 02</span>
+                <h3 class="g-card-title">Our Photobooth Memories</h3>
+              </div>
+              <p class="g-card-teaser">
+                Every funny pose and sweet smile is etched into my heart...
+              </p>
+              <div class="g-card-full-message">
+                <div class="quote-mark">“</div>
+                <p class="quote-text">
+                  I love that we have little pieces of our day that we can look
+                  back on and smile about. Seeing you laugh in front of the
+                  camera was the highlights of my day.
+                </p>
+              </div>
+              <div class="g-card-action">
+                <span class="action-hint">Tap to expand 💛</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="gratitude-card"
+              data-card="3"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+            >
+              <div class="g-card-glow"></div>
+              <div class="g-card-icon">💖</div>
+              <div class="g-card-head">
+                <span class="g-card-pill">Thought 03</span>
+                <h3 class="g-card-title">Your Generous Heart</h3>
+              </div>
+              <p class="g-card-teaser">
+                How effortlessly and warmly you give without asking for
+                anything...
+              </p>
+              <div class="g-card-full-message">
+                <div class="quote-mark">“</div>
+                <p class="quote-text">
+                  You give so much of yourself, and I hope you know how deeply I
+                  appreciate your kindness. You never have to spend a cent to
+                  make me happy, but your thoughtfulness always moves me.
+                </p>
+              </div>
+              <div class="g-card-action">
+                <span class="action-hint">Tap to expand 💛</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="gratitude-card"
+              data-card="4"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+            >
+              <div class="g-card-glow"></div>
+              <div class="g-card-icon">🙈</div>
+              <div class="g-card-head">
+                <span class="g-card-pill">Thought 04</span>
+                <h3 class="g-card-title">My Shy Little Heart</h3>
+              </div>
+              <p class="g-card-teaser">
+                Why I get quiet and blush when you pay for our things...
+              </p>
+              <div class="g-card-full-message">
+                <div class="quote-mark">“</div>
+                <p class="quote-text">
+                  Sometimes I get shy when you treat me so much, but please
+                  never mistake my shyness for ingratitude. I appreciate you
+                  more than I can explain, and I am so grateful for you.
+                </p>
+              </div>
+              <div class="g-card-action">
+                <span class="action-hint">Tap to expand 💛</span>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+              class="gratitude-card"
+              data-card="5"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+            >
+              <div class="g-card-glow"></div>
+              <div class="g-card-icon">✨</div>
+              <div class="g-card-head">
+                <span class="g-card-pill">Thought 05</span>
+                <h3 class="g-card-title">The Most Important Thing</h3>
+              </div>
+              <p class="g-card-teaser">
+                What truly matters more than anything in this entire world...
+              </p>
+              <div class="g-card-full-message">
+                <div class="quote-mark">“</div>
+                <p class="quote-text">
+                  No gift could ever replace you. I want you for your heart,
+                  your presence, your laughter, and the love we share. Having
+                  you in my arms is the greatest blessing I could ever ask for.
+                </p>
+              </div>
+              <div class="g-card-action">
+                <span class="action-hint">Tap to expand 💛</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 5: THE GOLDEN PROMISE SECTION
+         ========================================== -->
+      <section class="promise-section" id="promises">
+        <div class="section-container">
+          <div class="section-header text-center">
+            <div class="section-tag">
+              <span class="tag-dot"></span>
+              <span>WRITTEN UNDER THE WINGS OF DEVOTION</span>
+              <span class="tag-dot"></span>
+            </div>
+            <h2 class="section-title">
+              My Promise to You,
+              <span class="gold-gradient-text">My Golden Girl</span> 🦅✨
+            </h2>
+            <p class="section-subtitle">
+              Like a golden phoenix with wings outstretched to shelter and
+              protect, my love for you is steadfast.
+            </p>
+          </div>
+
+          <!-- Phoenix Wings Centerpiece Illustration for Promises -->
+          <div class="promise-phoenix-banner" aria-hidden="true">
+            <div class="wings-wing left-wing"></div>
+            <div class="wings-heart-gem">
+              <span>🔥</span>
+            </div>
+            <div class="wings-wing right-wing"></div>
+          </div>
+
+          <!-- Interactive Promise Slider / Stepper -->
+          <div class="promise-carousel-card">
+            <div class="promise-badge-row">
+              <span class="promise-step-counter" id="promiseStepCounter"
+                >Promise 1 of 5</span
+              >
+              <div class="promise-step-dots" id="promiseStepDots">
+                <button
+                  class="step-dot active"
+                  data-index="0"
+                  aria-label="Go to promise 1"
+                ></button>
+                <button
+                  class="step-dot"
+                  data-index="1"
+                  aria-label="Go to promise 2"
+                ></button>
+                <button
+                  class="step-dot"
+                  data-index="2"
+                  aria-label="Go to promise 3"
+                ></button>
+                <button
+                  class="step-dot"
+                  data-index="3"
+                  aria-label="Go to promise 4"
+                ></button>
+                <button
+                  class="step-dot"
+                  data-index="4"
+                  aria-label="Go to promise 5"
+                ></button>
+              </div>
+            </div>
+
+            <div class="promise-display-stage">
+              <div class="promise-feather-ornament">🪶</div>
+              <div class="promise-quote-body" id="promiseQuoteText">
+                “I will never treat your kindness as something I am entitled
+                to.”
+              </div>
+            </div>
+
+            <div class="promise-navigation-row">
+              <button
+                id="prevPromiseBtn"
+                class="btn-step"
+                aria-label="Previous promise"
+              >
+                <span>← Previous</span>
+              </button>
+              <button
+                id="nextPromiseBtn"
+                class="btn-golden btn-step"
+                aria-label="Next promise"
+              >
+                <span>Next Promise →</span>
+              </button>
+            </div>
+
+            <!-- Culminating Golden Conclusion -->
+            <div class="promise-finale-box">
+              <div class="finale-sparkle">👑</div>
+              <p class="finale-text">
+                “You do not have to give me the world, Baby. Having you beside
+                me is already a beautiful gift. And whenever I can, I want to be
+                a blessing to you, too.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 6: BIBLE VERSE SECTION
+         ========================================== -->
+      <section class="faith-section" id="faith">
+        <div class="section-container">
+          <div class="faith-card">
+            <div class="faith-cross-icon" aria-hidden="true">✝️</div>
+
+            <span class="faith-label">A SACRED REMINDER</span>
+
+            <blockquote class="faith-scripture">
+              “The fear of the Lord is the beginning of wisdom, and knowledge of
+              the Holy One is understanding.”
+            </blockquote>
+
+            <cite class="faith-reference">— Proverbs 9:10</cite>
+
+            <div class="faith-divider">
+              <span class="divider-line"></span>
+              <span class="divider-sparkle">✨</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <p class="faith-reflection">
+              Whenever I look at you, Baby Julie, I see this verse reflected in
+              your actions. The gentle patience you give me, the generous meals
+              you share, and the pure kindness with which you treat me are
+              living proof of genuine love. I pray that God continues to bless
+              your tender heart, protect your peace, and guide the beautiful
+              relationship we are building together day by day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         SECTION 7: FINAL SURPRISE & LOVE CLOSING
+         ========================================== -->
+      <section class="ending-section" id="ending">
+        <div class="section-container text-center">
+          <div class="ending-phoenix-emblem">
+            <div class="emblem-halo"></div>
+            <img
+              src="images/phoenix.png"
+              alt="Golden Phoenix"
+              class="ending-phoenix-small"
+              onerror="this.style.display = 'none'"
+            />
+            <div class="emblem-heart">❤️🔥</div>
+          </div>
+
+          <h3 class="ending-lead">
+            To the girl who keeps giving me reasons to be thankful…
+          </h3>
+
+          <p class="ending-echo">
+            Thank you for today. Thank you for every little thing. Thank you for
+            being you.
+          </p>
+
+          <!-- Emotional Grand Climax Card -->
+          <div class="ending-climax-card">
+            <div class="climax-border-glow"></div>
+            <p class="ending-climax-text">
+              “Julie, I may be shy when it comes to showing how much I
+              appreciate everything you do, but please never doubt how much I
+              love you. You are not just someone who makes my days brighter. You
+              are someone I genuinely want to keep choosing, loving, and growing
+              with. My heart is so thankful that God allowed our paths to meet.
+              <strong>I really, really love you, Baby. ❤️🔥</strong>”
+            </p>
+          </div>
+
+          <!-- Virtual Hug Button -->
+          <div class="ending-interactive-zone">
+            <button id="virtualHugBtn" class="btn-golden btn-hug">
+              <span class="btn-icon">🫂</span>
+              <span class="btn-text">One Last Hug?</span>
+              <span class="btn-shimmer"></span>
+            </button>
+
+            <p class="hug-note">
+              Press to feel my arms wrapped around you with all my warmth.
+            </p>
+          </div>
+
+          <!-- Back to Top Button -->
+          <div class="back-to-top-container">
+            <a href="#hero" class="btn-back-to-top" id="backToTopBtn">
+              <span>↑ Back to the Beginning</span>
+            </a>
+          </div>
+
+          <!-- Footer Credits -->
+          <footer class="site-footer">
+            <p class="footer-copy">
+              Crafted with endless love &amp; gratitude for my Baby Julie ✨
+            </p>
+            <p class="footer-date">
+              Always your boy • Today, Tomorrow, &amp; Forever
+            </p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================
+       PHOTO LIGHTBOX MODAL
+       ========================================== -->
+    <div
+      id="photoLightboxModal"
+      class="lightbox-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo Lightbox"
+      style="display: none"
+    >
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-dialog">
+        <button
+          id="lightboxCloseBtn"
+          class="lightbox-close"
+          aria-label="Close dialog"
+        >
+          ✕
+        </button>
+
+        <div class="lightbox-media-container">
+          <img
+            id="lightboxImg"
+            src=""
+            alt="Enlarged photo memory"
+            class="lightbox-image"
+          />
+          <div id="lightboxSpinner" class="lightbox-spinner"></div>
+        </div>
+
+        <div class="lightbox-details">
+          <div class="lightbox-tag" id="lightboxTag">Memory 01</div>
+          <h4 class="lightbox-title" id="lightboxTitle">Photo Title</h4>
+          <p class="lightbox-caption" id="lightboxCaption">
+            Heartfelt caption goes here.
+          </p>
+        </div>
+
+        <div class="lightbox-nav-controls">
+          <button
+            id="lightboxPrevBtn"
+            class="lightbox-arrow prev"
+            aria-label="Previous photo"
+          >
+            ‹
+          </button>
+          <span id="lightboxCounter" class="lightbox-counter">1 / 5</span>
+          <button
+            id="lightboxNextBtn"
+            class="lightbox-arrow next"
+            aria-label="Next photo"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+       VIRTUAL HUG MODAL / ANIMATION OVERLAY
+       ========================================== -->
+    <div
+      id="virtualHugOverlay"
+      class="hug-overlay"
+      role="dialog"
+      aria-modal="true"
+      style="display: none"
+    >
+      <div class="hug-modal-card">
+        <button
+          id="closeHugBtn"
+          class="hug-close-btn"
+          aria-label="Close hug modal"
+        >
+          ✕
+        </button>
+        <div class="hug-animation-core">
+          <div class="hug-pulse-ring ring-1"></div>
+          <div class="hug-pulse-ring ring-2"></div>
+          <div class="hug-pulse-ring ring-3"></div>
+          <div class="hug-emojis">🫂❤️✨</div>
+        </div>
+        <h3 class="hug-modal-title">A Warm, Tight Hug For My Baby</h3>
+        <p class="hug-modal-msg">
+          Wrapping my arms around you tight right now... Thank you for today's
+          food, our photobooth smiles, your endless sweetness, and most of all,
+          your precious love. I appreciate you more than my shy heart could ever
+          say. Sleep with a peaceful smile, Julie. You are forever cherished.
+        </p>
+        <div class="hug-signature">Always holding you close, your boy ❤️🔥</div>
+        <button id="sweetDreamBtn" class="btn-golden btn-glow">
+          Thank You, My Love 💖
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+       SECRET FEATHER EASTER EGG MODAL
+       ========================================== -->
+    <div
+      id="secretFeatherModal"
+      class="secret-modal"
+      role="dialog"
+      aria-modal="true"
+      style="display: none"
+    >
+      <div class="secret-modal-backdrop" id="secretModalBackdrop"></div>
+      <div class="secret-modal-card">
+        <div class="secret-feather-icon">🪶✨</div>
+        <h3 class="secret-title">You Found My Secret Feather!</h3>
+        <p class="secret-text">
+          Baby Julie, I hid this little feather just in case your curious
+          fingers explored every corner. I wanted to whisper this to you:
+        </p>
+        <div class="secret-quote">
+          “You looked so radiant and breathtaking today. When you laughed in the
+          photobooth, my heart melted all over again. Thank you for choosing to
+          spend your day with me.”
+        </div>
+        <button id="closeSecretBtn" class="btn-golden btn-sm">
+          I Love You Too ❤️
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+       SEND LOVE TOAST / CELEBRATION MODAL
+       ========================================== -->
+    <div
+      id="sendLoveModal"
+      class="secret-modal"
+      role="dialog"
+      aria-modal="true"
+      style="display: none"
+    >
+      <div class="secret-modal-backdrop" id="sendLoveModalBackdrop"></div>
+      <div class="secret-modal-card">
+        <div class="secret-feather-icon">💌🔥</div>
+        <h3 class="secret-title">Love Delivered Directly to Julie!</h3>
+        <p class="secret-text">
+          1,000,000 warm kisses and endless gratitude have been sent straight to
+          your heart.
+        </p>
+        <div class="secret-quote">
+          “Thank you for being my peace, my joy, and my sweetest blessing.”
+        </div>
+        <button id="closeSendLoveBtn" class="btn-golden btn-sm">
+          Received with a Smile 🥰
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+       FLOATING ROMANTIC MUSIC PLAYER
+       ========================================== -->
+    <div class="floating-music-player" id="floatingMusicPlayer">
+      <!-- Local Audio Element -->
+      <audio id="romanticAudio" preload="auto" loop>
+        <source src="music.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <div class="player-vinyl-disc" id="playerVinylDisc">
+        <div class="vinyl-groove"></div>
+        <div class="vinyl-center">❤️</div>
+      </div>
+
+      <div class="player-info-cluster">
+        <div class="player-track-name">
+          <span class="now-playing-dot"></span>
+          <span class="track-title" id="trackTitle"
+            >Our Romantic Soundtrack</span
+          >
+        </div>
+        <div class="player-visualizer" id="playerVisualizer" aria-hidden="true">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+          <span class="bar bar-4"></span>
+          <span class="bar bar-5"></span>
+        </div>
+        <!-- Track seek/progress bar -->
+        <div
+          class="audio-progress-bar-wrap"
+          id="audioProgressWrap"
+          title="Click to seek"
+        >
+          <div class="audio-progress-fill" id="audioProgressFill"></div>
+        </div>
+      </div>
+
+      <div class="player-controls-cluster">
+        <button
+          id="playerPlayPauseBtn"
+          class="player-btn-main"
+          aria-label="Play or pause romantic song"
+        >
+          <span id="playerBtnIcon" class="player-btn-icon">▶</span>
+        </button>
+
+        <button
+          id="playerMuteBtn"
+          class="player-btn-sub"
+          aria-label="Mute or unmute music"
+          title="Mute/Unmute"
+        >
+          <span id="muteIcon">🔊</span>
+        </button>
+
+        <button
+          id="playerMinimizeBtn"
+          class="player-btn-sub"
+          aria-label="Minimize player"
+          title="Minimize player"
+        >
+          <span>—</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Audio Autoplay Blocked Floating Prompt (Fallback) -->
+    <div id="autoplayToastPrompt" class="autoplay-toast" style="display: none">
+      <div class="toast-content">
+        <span class="toast-icon">🎶</span>
+        <div class="toast-text">
+          <strong>Our Song is Ready</strong>
+          <span>Click to start our romantic background music ✨</span>
+        </div>
+      </div>
+      <div class="toast-actions">
+        <button id="toastPlayBtn" class="btn-toast-play">Play Music 🎵</button>
+        <button
+          id="toastDismissBtn"
+          class="btn-toast-dismiss"
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Custom Cursor Trail (Desktop Only) -->
+    <div
+      id="cursorTrailContainer"
+      class="cursor-trail-container"
+      aria-hidden="true"
+    ></div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+  </body>
+</html>
